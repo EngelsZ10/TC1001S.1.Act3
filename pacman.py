@@ -124,6 +124,16 @@ def move():
     dot(20, 'yellow')
 
     for point, course in ghosts:
+        if point.x==pacman.x:
+            if point.y>pacman.y:
+                course = vector(0,-5)
+            else:
+                course = vector(0,5)
+        elif point.y==pacman.y:
+            if point.x>pacman.x:
+                course= vector(-5,0)
+            else:
+                course = vector(5,0)
         if valid(course+point):
             point.move(course*3)
         else:
